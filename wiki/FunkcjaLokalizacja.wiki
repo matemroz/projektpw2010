@@ -1,0 +1,14 @@
+#summary Szczegóły na temat lokalizacji
+= Introduction =
+
+Jak ma działać lokalizacja
+
+
+= Szczegóły =
+
+Użycie odbiornika GPS:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+Użycie Google maps
