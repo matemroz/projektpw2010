@@ -9,5 +9,9 @@ Aplikacja na androida do pilnowania dzieci
 
 Co ta aplikacja ma robić?
   * *działać* albo _udawać że działa_
-  * itd
+  * [FunkcjaLokalizacja]
   * itp
+
+= Pomoc Wiki =
+[http://pl.wikipedia.org/wiki/Pomoc:Formatowanie_tekstu Formatowanie tekstu]
+[http://pl.wikipedia.org/wiki/Wikipedia:Tabela_metod_tworzenia_link%C3%B3w Tworzenie linków]
