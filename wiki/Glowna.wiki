@@ -1,0 +1,13 @@
+#summary Strona główna
+
+= Wprowadzenie =
+
+Aplikacja na androida do pilnowania dzieci
+
+
+= Szczegóły =
+
+Co ta aplikacja ma robić?
+  * *działać* albo _udawać że działa_
+  * itd
+  * itp
