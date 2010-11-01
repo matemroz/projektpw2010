@@ -1,0 +1,12 @@
+#summary One-sentence summary of this page.
+
+= Wprowadzenie =
+
+Program na Androida do pilnowania dzieci
+
+
+= Szczegóły =
+
+Co ten system ma robić?
+  * *działać*
+  * _italic_ (Headings, paragraphs, and lists)
