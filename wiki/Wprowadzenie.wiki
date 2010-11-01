@@ -1,0 +1,13 @@
+#Taka gadanina na początek
+
+= Introduction =
+
+Aplikacja na androida do pilnowania dzieci
+
+
+= Details =
+
+Co ta aplikacja ma robić?
+  * *działać* albo _udawać że działa_
+  * itd
+  * itp
