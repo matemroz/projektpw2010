@@ -1,0 +1,11 @@
+#summary Google Map API
+
+= Mapy Google =
+
+Użycie API Google Map do prezentacji położenia telefonów
+
+
+= Szczegóły =
+
+Użycie Google Maps:
+  * [http://code.google.com/intl/pl-PL/apis/maps/documentation/mapsdata/developers_guide_java.html Link do Google Maps API Java] - wstępnie mnie to zainteresowało. Mogę spróbować coś w tym porzeźbić (Arek)
