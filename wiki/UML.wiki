@@ -8,3 +8,5 @@ Dokumentacha UML Enterprise Architect
 
 = Details =
 
+Link z projektem:
+http://projektpw2010.googlecode.com/files/projekt.eap
