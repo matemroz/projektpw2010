@@ -9,7 +9,7 @@ Aplikacja na androida do pilnowania dzieci
 
 Co ta aplikacja ma robić?
   * *działać* albo _udawać że działa_
-  * [FunkcjaLokalizacja]
+  * [FunkcjaLokalizacja Jak działa lokalizacja]
   * [Funkcjonalnosci]
   * itp
 
