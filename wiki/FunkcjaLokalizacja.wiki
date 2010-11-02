@@ -8,6 +8,3 @@ Jak ma działać lokalizacja
 
 Użycie odbiornika GPS:
   * Się coś tu napisze
-
-Użycie Google Maps:
-  * [http://code.google.com/intl/pl-PL/apis/maps/documentation/mapsdata/developers_guide_java.html Link do Google Maps API Java] - wstępnie mnie to zainteresowało. Mogę spróbować coś w tym porzeźbić (Arek)
