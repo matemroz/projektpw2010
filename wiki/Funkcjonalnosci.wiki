@@ -6,7 +6,7 @@ Zbiór funkcjonalności z podziałem na poszczególnych użytkowników
 = Szczegóły =
 
 == Dziecko ==
-# [Zasada &Delta] przy funkcji przesyłania kolejnych danych
+# [ZasadaDelta|Zasada delta] przy funkcji przesyłania kolejnych danych
 # [Blokada zamknięcia aplikacji] - o ile się da
 # Zastosowanie [[własnej pamięci w telefonie]]
 
@@ -23,4 +23,3 @@ Zbiór funkcjonalności z podziałem na poszczególnych użytkowników
 
 == Algorytmy ==
 # [[Powiadamianie najbliższego rodzica]]
-
