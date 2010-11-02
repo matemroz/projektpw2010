@@ -7,8 +7,9 @@ Jak ma działać lokalizacja
 = Szczegóły =
 
 Użycie odbiornika GPS:
-  * Text in *bold* or _italic_
+  * Się coś tu napisze
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
 
-Użycie Google maps
+Użycie Google Maps:
+  * [http://code.google.com/intl/pl-PL/apis/maps/documentation/mapsdata/developers_guide_java.html|Link do Google Maps API Java]
