@@ -1,0 +1,10 @@
+#summary Dokumentacja UML w Enterprise Architect
+#labels Phase-Requirements
+
+= Dokumentacha UML =
+
+Dokumentacha UML Enterprise Architect
+
+
+= Details =
+
