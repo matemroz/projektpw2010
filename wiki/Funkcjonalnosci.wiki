@@ -1,0 +1,26 @@
+#summary Po kolei co ta aplikacja ma robić
+= Funkcjonalności =
+
+Zbiór funkcjonalności z podziałem na poszczególnych użytkowników
+
+= Szczegóły =
+
+== Dziecko ==
+# [Zasada &Delta] przy funkcji przesyłania kolejnych danych
+# [Blokada zamknięcia aplikacji] - o ile się da
+# Zastosowanie [[własnej pamięci w telefonie]]
+
+== Rodzic ==
+# [[Pokazywanie historii]] podróży dziecka na 2 sposoby
+# [[Ustalenie niebezpiecznych dzielnic]], użycie [[API Google]]
+# Typowe funkcje:
+## [[Dodanie, usuwanie konta]]
+## [[Edytowanie telefonów dziecka]]
+
+== Admin ==
+# Całkowity dostęp do bazy danych
+# Posiadanie [[Aplikacja zarządzania baza|aplikacji do zarządzania bazą]]
+
+== Algorytmy ==
+# [[Powiadamianie najbliższego rodzica]]
+
