@@ -6,9 +6,9 @@ Zbiór funkcjonalności z podziałem na poszczególnych użytkowników
 = Szczegóły =
 
 == Dziecko ==
-* Zasada delta przy funkcji przesyłania kolejnych danych
-* Blokada zamknięcia aplikacji - o ile się da
-* Zastosowanie własnej pamięci w telefonie
+  # Zasada delta przy funkcji przesyłania kolejnych danych
+  # Blokada zamknięcia aplikacji - o ile się da
+  # Zastosowanie własnej pamięci w telefonie
 
 == Rodzic ==
 * Pokazywanie historii podróży dziecka na 2 sposoby
@@ -23,8 +23,3 @@ Zbiór funkcjonalności z podziałem na poszczególnych użytkowników
 
 == Algorytmy ==
 * Powiadamianie najbliższego rodzica
-
-Co ta aplikacja ma robić?
-  * *działać* albo _udawać że działa_
-  * [FunkcjaLokalizacja]
-  * itp
