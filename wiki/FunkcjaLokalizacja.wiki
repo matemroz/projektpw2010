@@ -12,4 +12,4 @@ Użycie odbiornika GPS:
   * Automatic links to other wiki pages
 
 Użycie Google Maps:
-  * [http://code.google.com/intl/pl-PL/apis/maps/documentation/mapsdata/developers_guide_java.html|Link do Google Maps API Java]
+  * [http://code.google.com/intl/pl-PL/apis/maps/documentation/mapsdata/developers_guide_java.html| Link do Google Maps API Java]
