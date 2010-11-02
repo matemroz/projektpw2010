@@ -23,3 +23,8 @@ Zbiór funkcjonalności z podziałem na poszczególnych użytkowników
 
 == Algorytmy ==
 * Powiadamianie najbliższego rodzica
+
+Co ta aplikacja ma robić?
+  * *działać* albo _udawać że działa_
+  * [FunkcjaLokalizacja]
+  * itp
