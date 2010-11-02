@@ -9,11 +9,11 @@ Aplikacja na androida do pilnowania dzieci
 
 Co ta aplikacja ma robić?
   * *działać* albo _udawać że działa_
+  * [Funkcjonalnosci Funkcjonalnosci podstawowe]
 
 == Specyfikacja ==
   * [FunkcjaLokalizacja Jak działa lokalizacja]
   * Prezentacja położenia przy użyciu [GoogleMap Google Map API] 
-  * [Funkcjonalnosci Funkcjonalnosci podstawowe]
   * itp
 
 == Dokumentacja ==
