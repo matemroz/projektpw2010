@@ -4,7 +4,7 @@
 
   # Podział prac między członków RAM (Paweł Z)
   # Opis case study (Bieniek)
-  # Mapa projektu  - statut (Arek)
+  # Mapa projektu  - [Statut statut] (Arek)
   # Dokument statutu (Arek)
   # SPMP IEEE 1058.1-1998 - software project managment plan (Mróz)
   # MS Project (Adam)
