@@ -23,3 +23,4 @@ Co ta aplikacja ma robić?
 
 == Pomoc Wiki ==
   * [http://code.google.com/p/support/wiki/WikiSyntax Formatowanie, linki]
+  * [http://code.google.com/p/support/wiki/FAQ Support for Google Code]
