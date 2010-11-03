@@ -19,6 +19,7 @@ Co ta aplikacja ma robić?
 
 == Dokumentacja ==
   * [UML]
+  * [ProjektIT]
 
 == Pomoc Wiki ==
   * [http://code.google.com/p/support/wiki/WikiSyntax Formatowanie, linki]
