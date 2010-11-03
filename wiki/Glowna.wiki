@@ -1,4 +1,5 @@
 #summary Strona główna
+#labels Featured
 
 = Wprowadzenie =
 
