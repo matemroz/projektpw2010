@@ -1,13 +1,11 @@
 #summary Na potrzeby przedmiotu Prowadzenie Projektów IT
 
-= Introduction =
+= Podział prac (wstępny) =
 
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  # Podział prac między członków RAM (Paweł Z)
+  # Opis case study (Bieniek)
+  # Mapa projektu  - statut (Arek)
+  # Dokument statutu (Arek)
+  # SPMP IEEE 1058.1-1998 - software project managment plan (Mróz)
+  # MS Project (Adam)
+  # Prezentacja (Banasik)
