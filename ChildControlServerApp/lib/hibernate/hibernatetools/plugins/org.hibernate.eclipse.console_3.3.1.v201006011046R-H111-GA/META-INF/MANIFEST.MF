@@ -1,0 +1,46 @@
+Manifest-Version: 1.0
+Bundle-Activator: org.hibernate.eclipse.console.HibernateConsolePlugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy
+Export-Package: org.hibernate.eclipse.builder,org.hibernate.eclipse.co
+ nsole,org.hibernate.eclipse.console.actions,org.hibernate.eclipse.con
+ sole.model,org.hibernate.eclipse.console.model.impl,org.hibernate.ecl
+ ipse.console.preferences,org.hibernate.eclipse.console.properties,org
+ .hibernate.eclipse.console.utils,org.hibernate.eclipse.console.utils.
+ xpl,org.hibernate.eclipse.console.viewers.xpl,org.hibernate.eclipse.c
+ onsole.views,org.hibernate.eclipse.console.views.navigator,org.hibern
+ ate.eclipse.console.views.properties,org.hibernate.eclipse.console.wi
+ zards,org.hibernate.eclipse.console.workbench,org.hibernate.eclipse.c
+ onsole.workbench.xpl,org.hibernate.eclipse.criteriaeditor,org.hiberna
+ te.eclipse.facet,org.hibernate.eclipse.graph,org.hibernate.eclipse.gr
+ aph.actions,org.hibernate.eclipse.graph.anchor,org.hibernate.eclipse.
+ graph.command,org.hibernate.eclipse.graph.figures,org.hibernate.eclip
+ se.graph.layout,org.hibernate.eclipse.graph.layout.xpl,org.hibernate.
+ eclipse.graph.model,org.hibernate.eclipse.graph.parts,org.hibernate.e
+ clipse.graph.policy,org.hibernate.eclipse.hqleditor,org.hibernate.ecl
+ ipse.hqleditor.preferences,org.hibernate.eclipse.launch,org.hibernate
+ .eclipse.launch.core.refactoring,org.hibernate.eclipse.nature,org.hib
+ ernate.eclipse.util.xpl
+Bundle-Version: 3.3.1.v201006011046R-H111-GA
+Bundle-Name: %Bundle-Name.0
+Bundle-ClassPath: org.hibernate.eclipse.console.jar
+Bundle-ManifestVersion: 2
+Bundle-Vendor: %Bundle-Vendor.0
+Bundle-SymbolicName: org.hibernate.eclipse.console; singleton:=true
+Bundle-Localization: plugin
+Require-Bundle: org.hibernate.eclipse,org.eclipse.jdt.ui,org.eclipse.j
+ dt.core,org.eclipse.core.runtime,org.eclipse.jface,org.eclipse.ui,org
+ .eclipse.ui.editors,org.eclipse.ui.views,org.eclipse.ui.workbench,org
+ .eclipse.ui.workbench.texteditor,org.eclipse.jface.text,org.eclipse.u
+ i.ide,org.eclipse.help,org.eclipse.ui.console,org.eclipse.gef,org.ecl
+ ipse.debug.core;bundle-version="3.4.0",org.eclipse.debug.ui,org.eclip
+ se.ui.forms,org.eclipse.wst.common.project.facet.core,org.eclipse.wst
+ .common.project.facet.ui,org.eclipse.ui.navigator,org.eclipse.jdt.lau
+ nching,org.eclipse.jdt.debug.ui,org.eclipse.core.filesystem,org.eclip
+ se.datatools.connectivity.ui,org.eclipse.datatools.connectivity,org.e
+ clipse.ltk.core.refactoring,org.eclipse.jdt.launching,org.eclipse.jdt
+ .debug.ui,org.eclipse.core.filesystem,org.eclipse.core.variables,org.
+ eclipse.datatools.connectivity.ui,org.eclipse.datatools.connectivity,
+ org.eclipse.jpt.core,org.eclipse.jpt.db,org.eclipse.jdt
+
+

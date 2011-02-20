@@ -1,0 +1,41 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- Database connection settings -->
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521/XE</property>
+		<property name="hibernate.connection.username">student</property>
+		<property name="hibernate.connection.password">student</property>
+
+		<!-- JDBC connection pool -->
+		<property name="hibernate.connection.pool_size">10</property>
+
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- Disable the second-level cache -->
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!-- SQL dialect -->
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">true</property>
+
+		<!-- SQL code will be formatted -->
+		<property name="format_sql">true</property>
+		
+		<!-- "Import" the mapping resources here -->
+		<mapping class="pw.childcontrol.server.database.hb.entity.Parent" />
+		<mapping class="pw.childcontrol.server.database.hb.entity.Children" />
+		<mapping class="pw.childcontrol.server.database.hb.entity.Marker" />
+		<mapping class="pw.childcontrol.server.database.hb.entity.Area" />
+		<mapping class="pw.childcontrol.server.database.hb.entity.AreaPoint" />
+		<mapping class="pw.childcontrol.server.database.hb.entity.Family" />
+		<mapping class="pw.childcontrol.server.database.hb.entity.ParentSettings" />
+	</session-factory>
+</hibernate-configuration>
