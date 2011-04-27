@@ -15,7 +15,7 @@ Co ta aplikacja ma robić?
 == Specyfikacja ==
   * [FunkcjaLokalizacja Jak działa lokalizacja]
   * Prezentacja położenia przy użyciu [GoogleMap Google Map API] 
-  * itp
+  * itp.
 
 == Dokumentacja ==
   * [UML]
