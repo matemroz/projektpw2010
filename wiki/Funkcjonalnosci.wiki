@@ -1,25 +1,136 @@
-#summary Po kolei co ta aplikacja ma robić
-= Funkcjonalności =
+=Funkcjonalność systemu Child Control=
+==Funkcjonalności modułów==
 
-Zbiór funkcjonalności z podziałem na poszczególnych użytkowników
 
-= Szczegóły =
+===Moduł dziecka===
+Funkcje podstawowe:
+  * czytanie współrzędnych GPS
+  * wysłanie danych
+  * okresowe automatyczne wysyłanie danych z położeniem na serwer
 
-== Dziecko ==
-  # Zasada delta przy funkcji przesyłania kolejnych danych
-  # Blokada zamknięcia aplikacji - o ile się da
-  # Zastosowanie własnej pamięci w telefonie
 
-== Rodzic ==
-  # Pokazywanie historii podróży dziecka na 2 sposoby
-  # Ustalenie niebezpiecznych dzielnic, użycie API Google
-  # Typowe funkcje:
-  ## Dodanie, usuwanie konta
-  ##Edytowanie telefonów dziecka
+Funkcje dodatkowe:
+  * czytanie położenia z anten BTS
+  * alarm
+  * powiadomienie rodziców o zagrożeniu
+  * jednoczesne powiadomienie grupy osób o sytuacji wyjątkowej
 
-== Admin ==
-  # Całkowity dostęp do bazy danych
-  # Posiadanie aplikacji do zarządzania bazą
 
-== Algorytmy ==
-  # Powiadamianie najbliższego rodzica
+===Moduł rodzica===
+Funkcje podstawowe:
+  * dodanie dziecka do kontroli
+  * ustawienie terenów zagrożonych dla każdego dziecka
+  * stworzenie domyślnych map z oznaczonym terenem zagrożeń (dla każdego   dziecka)
+  * sprawdzenie położenia dziecka
+  * automatyczne powiadamianie o wkroczeniu na zagrożony teren
+
+		
+
+Funkcje dodatkowe:
+Wprowadzenie metryki “zdrowasiek” (20 s. = 1 zdrowaśka)
+Napisanie: BitchVersion
+
+
+
+===Moduł administratora = moduł internetowy===
+Funkcje podstawowe:
+
+Funkcje dodatkowe:
+
+http://www.bipper.no/
+Scenariusze przypadków użycia
+
+===Aplikacja dziecka===
+
+===Aplikacja rodzica===
+Przypadki użycia:
+Sprawdzenie położenia dziecka:
+  # Rodzic włącza aplikacje
+  # Wybranie opcji “Lokalizacja dziecka” albo “Lokalizuj dziecko”
+  # System wyświetla listę dzieci
+  # Rodzic wybiera dziecko i zatwierdza
+  # Serwer zwraca dane geograficzne
+  # Aplikacja rodzica wyświetla mapę z zaznaczonym punktem i najbliższy adres odpowiadający położeniu dziecka.
+
+
+
+Sprawdzenie położenia dziecka:
+  # (Rodzic) wybiera opcję "Sprawdź położenie dziecka"
+  # (System) wyświetla listę dzieci
+  # (Rodzic) wybiera dziecko z listy
+  # (System) wysyła zapytanie do serwera o położenie dziecka
+  # (System) wyświetla mapę z zacznaczonym punktem
+
+Sprawdzenie historii położenia dziecka:
+  # (Rodzic) sprawdza opcję "Historia lokalizacji dziecka"
+  # (System) wyświetla listę dzieci
+  # (Rodzic) wybiera dziecko z listy
+  # (System) wyświetla opcje konfiguracji
+  # (Rodzic) wybiera ilość wyświetlanych punktów oraz zakres czasu
+  # (System) wysyła zapytanie do bazy
+  # (System) wyświetla mapę z zaznaczonymi punktami
+
+Pokaż szczegóły markera:
+  # (Rodzic) wybiera marker
+  # (System) wyświetla tabelę historii
+
+Dodanie podejrzanego miejsca:
+  # (Rodzic) wybiera opcję "Dodaj niebezpieczną lokalizację"
+  # (System) wyświetla listę dzieci
+  # (Rodzic) wybiera dziecko z listy
+  # (System) wyświetla listę opcji wprowadzania lokalizacji
+  # (Rodzic) wybiera jedną z opcji
+  # (Rodzic) wprowadza dane lokalizacji
+
+
+Wyznaczenie terenu zagrożonego dla dziecka
+  # Rodzic wybiera opcję “Oznacz teren niebezpieczny”
+  # Rodzic wybiera dziecko listy.
+  # Aplikacja prezentuje mapę z możliwością zaznaczania markerów. W tym momencie punkty są łączone ze sobą, w celu wydzielenia obszaru zamkniętego. Klient po skończeniu dodawania punktów i zaznaczeniu obszaru zatwierdza wybór.
+  # Wyświetlany jest formularz, w którym wpisuje się: nazwę obszaru. Klient zatwierdza po 
+wpisaniu.
+  # System wyświetla listę zdefiniowanych obszarów i przypisanych do dziecka.
+
+Automatyczne wykrywanie wejścia w niebezpieczny teren
+  # System odbiera dane o położeniu dziecka. W przypadku wykrycia kolizji położenia dziecka z  terenem niebezpiecznym, system podejmuje akcje.
+  # W systemie wyświetla się okno z informacją (alertem): dziecko, nazwa terenu zagrożonego, przycisk do mapy, gdzie jest zaznaczony marker z lokalizacją dziecka oraz zaznaczonym zagrożonym terenem.
+
+
+Dodanie nowego dziecka (telefonu) do systemu śledzenia:
+  # (od teraz telefon dziecka) Instalacja aplikacji na telefonie dziecka
+  # Połączenie z systemem i zarejestrowanie numeru IMEI z telefonu dziecka
+  # System zwraca unikalny kod rejestracyjny i numer id klienta dziecka na telefon dziecka.
+  # (od teraz telefon rodzica) Rodzic wybiera ustawienia -> dodanie nowego dziecka: 
+  # Rodzic uzupełnia podstawowe jego dane (imie, rok urodzenia) oraz wpisuje id klienta dziecka i kod rejestracyjny. Potwierdza, i dane lecą na serwer
+  # System odbiera i wysyła że jest gites.
+
+Rejestracja nowego konta rodzica:
+  # Rodzic uruchamia aplikację
+  # Wybiera opcję  “Zarejestruj się”
+  # Rodzic wypełnia formularz (pole na imię, nazwisko, e-mail, login, hasło).
+  # Wysyła na serwer dane rejestracyjne. Dane do loginu: e-mail, haslo swoje
+  # system odpowiada “pozdro600”
+
+Dodanie nowego dziecka:
+  # (Rodzic) wybiera opcję "Dodaj dziecko do systemu"
+  # (System) wyświetla formularz do wypełnienia
+  # (Rodzic) wypełnia formularz
+  # (System) przesyła formularz na serwer
+  # (System) prosi o podanie kodu wysłanego na telefon dziecka
+  # (Rodzic) wprowadza kod przesłany na telefon dziecka
+
+
+Działanie aplikacji dziecka:
+  # Aplikacja się uruchamia z długiego snu
+  # Ściąga ustawienia co ile zdrowasiek ma wysyłać dane na serwer
+  # Ogarnia się i zaczyna normalną pracę (wysyłania danych gps, swojego id)
+…....
+  # Co jakiś czas sprawdza czy dane konfiguracyjne (sprawdza booleana) się zmieniły
+
+Słownik
+
+Marker - reprezentuje punkt na mapie określający z lokalizacją
+Tabela historii - zawiera: nr porządkowy, godzinę (datę), najbliższy adres, dane geograficzne
+Lista opcji wprowadzania lokalizacji - 
+Zdrowaśka - 20 sekund
+Formularz dodania dziecka - 
