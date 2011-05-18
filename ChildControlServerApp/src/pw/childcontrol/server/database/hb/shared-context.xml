@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+  http://www.springframework.org/schema/beans
+  classpath:org/springframework/beans/factory/xml/spring-beans-2.0.xsd
+  http://www.springframework.org/schema/tx
+  classpath:org/springframework/transaction/config/spring-tx-2.0.xsd
+  http://www.springframework.org/schema/aop
+  classpath:org/springframework/aop/config/spring-aop-2.0.xsd">
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>oracle.jdbc.driver.OracleDriver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:oracle:thin:@localhost:1521/XE</value>
+		</property>
+		<property name="username">
+			<value>student</value>
+		</property>
+		<property name="password">
+			<value>student</value>
+		</property>
+	</bean>
+
+	<bean id="hibernateProperties" class="org.onecmdb.core.internal.storage.HibernateProperty">
+		<!-- JDBC connection pool -->
+		<!-- There is possibility that it is not the best solution for us. -->
+		<!-- <property name="hibernate.connection.pool_size">10</property> -->
+		<!-- Instead I use connection_pool like this: -->
+		<property name="hibernate.c3p0.min_size">
+			<value>5</value>
+		</property>
+		<property name="hibernate.c3p0.max_size">
+			<value>20</value>
+		</property>
+		<property name="hibernate.c3p0.timeout">
+			<value>1800</value>
+		</property>
+		<property name="hibernate.c3p0.max_statements">
+			<value>50</value>
+		</property>
+
+		<!-- NEEDED TO BE TESTED! Enable Hibernate's automatic session context 
+			management -->
+		<property name="current_session_context_class">
+			<value>thread</value>
+		</property>
+
+		<!-- NEEDED TO BE TESTED! Disable the second-level cache -->
+		<property name="cache.provider_class">
+			<value>org.hibernate.cache.NoCacheProvider</value>
+		</property>
+
+		<!-- SQL dialect -->
+		<property name="hibernate.dialect">
+			<value>org.hibernate.dialect.Oracle10gDialect</value>
+		</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">
+			<value>true</value>
+		</property>
+
+		<!-- SQL code will be formatted -->
+		<property name="format_sql">
+			<value>true</value>
+		</property>
+	</bean>
+
+
+	<bean id="localSessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>pw.childcontrol.server.database.hb.entity.Parent</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<ref bean="hibernateProperties" />
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="localSessionFactory" />
+	</bean>
+	
+	<bean id="parentDao"
+		class="pw.childcontrol.server.database.hb.dao.ParentDao"
+		p:sessionFactory-ref="localSessionFactory"></bean>
+		<tx:annotation-driven/>
+</beans> 

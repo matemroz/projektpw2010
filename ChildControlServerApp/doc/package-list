@@ -1,3 +1,1 @@
-pw.childcontrol.server.database
-pw.childcontrol.server.database.hb.dao
-pw.childcontrol.server.database.hb.entity
+pw.childcontrol.server.database.jdbc.utils

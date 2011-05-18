@@ -14,7 +14,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 
 public class DAO {
 
-	protected DAO() {
+	public DAO() {
 	}
 
 	public static Session getSession() {
@@ -29,15 +29,15 @@ public class DAO {
 	/**
 	 * Method responsible for beginning Hibernate session.
 	 */
-	protected void begin() {
+	public void begin() {
 		getSession().beginTransaction();
 	}
 
-	protected void commit() {
+	public void commit() {
 		getSession().getTransaction().commit();
 	}
 
-	protected void rollback() {
+	public void rollback() {
 		try {
 			getSession().getTransaction().rollback();
 		} catch (HibernateException e) {

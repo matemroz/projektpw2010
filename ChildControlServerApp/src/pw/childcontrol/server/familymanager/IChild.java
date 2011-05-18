@@ -5,6 +5,7 @@ package pw.childcontrol.server.familymanager;
 
 import java.util.Date;
 import java.util.List;
+import pw.childcontrol.server.database.jdbc.AreaPoint;
 
 public interface IChild {
 	//### LOCATION ###
@@ -61,7 +62,7 @@ public interface IChild {
 	 * Pobiera imię konkretnego dziecka.
 	 * 
 	 * @param idChild indiwydualny numer dziecka
-	 * @return napis zawierjący imię dziecka
+	 * @return napis zawierjący imię dziecka lub null w wypadku niepowodzenia
 	 */
 	public String getName(int idChild);
 	//###
@@ -81,7 +82,7 @@ public interface IChild {
 	 * 
 	 * @param idChild indiwydualny numer dziecka
 	 * @param imei numer IMEI
-	 * @return napis zawierający unikalny klucz
+	 * @return zwraca unikalny klucz
 	 */
 	public String registerImei(int idChild, String imei);
 	//###

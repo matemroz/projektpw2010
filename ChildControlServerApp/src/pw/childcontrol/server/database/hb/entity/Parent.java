@@ -24,7 +24,7 @@ public class Parent implements Serializable {
 
 	private ParentSettings parentSettings;
 	
-	Parent() {
+	public Parent() {
 	}
 	
 	public void setParentSettings(ParentSettings parentSettings){
@@ -59,7 +59,7 @@ public class Parent implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	
 	@Column(name = "email", nullable = false, length = 100, unique = true)
 	public String getEmail() {
 		return email;
