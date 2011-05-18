@@ -2,9 +2,10 @@
 @author      Mateusz Mróz
 @version	 1.0
 */
-package pw.childcontrol.server.database;
+package pw.childcontrol.server.database.jdbc;
 
 import java.sql.*;
+
 import oracle.jdbc.pool.OracleDataSource;
 
 public class ConnectionManager {
@@ -16,12 +17,17 @@ public class ConnectionManager {
     /**
 	  * Class constructor which creates the connection to database.
 	*/
+	@SuppressWarnings("deprecation")
 	private ConnectionManager(){
 		try {
 			ods = new OracleDataSource();
-			String connectionString = "jdbc:oracle:thin:student/student@localhost:1521/XE";
+			String connectionString = "jdbc:oracle:thin:student/student@localhost:1521:XE";
 			ods.setURL(connectionString);
+			ods.setLoginTimeout(1);
 			conn = ods.getConnection();
+			if(conn != null ){
+				System.out.println("Oracle database connection established successfully");
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -34,15 +40,24 @@ public class ConnectionManager {
 	 */
 	public static Connection getDatabaseConnection() throws SQLException{
 		if(cm.conn == null || cm == null)
-			new ConnectionManager();
+				new ConnectionManager();
 		return cm.conn;
 	}
 	
 	/**
 	 * Method responsible for closing connection from database.
+	 * @return 
 	 * @throws SQLException  If an sql exception occured.
 	 */
-	public void disconnectFromDatabase() throws SQLException{
-		conn.close();
+	public static void disconnectFromDatabase() throws SQLException{
+		cm.conn.close();
+	}
+	
+	public static void main(String[] args){
+		try{
+			getDatabaseConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -5,6 +5,9 @@ package pw.childcontrol.server.familymanager;
 
 import java.util.List;
 
+import pw.childcontrol.server.database.jdbc.Area;
+import pw.childcontrol.server.database.jdbc.AreaPoint;
+
 public interface IAreaManager {
 	//### AREA ###
 	/**
