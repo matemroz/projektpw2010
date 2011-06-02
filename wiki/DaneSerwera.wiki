@@ -1,0 +1,3 @@
+jboss: matemroz.dyndns.org:9999
+ssh: matemroz.dyndns.org:2222
+rdp: matemroz.dyndns.org:3389
