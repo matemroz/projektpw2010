@@ -3,15 +3,37 @@
  */
 package pw.childcontrol.server.dao;
 
+import java.util.Date;
+import java.util.List;
+
 public interface ParentDAO {
-	//### CHILDREN LIST###
+	//### RODZIC dodawanie/usuwanie ###
+	/**
+	 * Dodaje rodzica do bazy danych.
+	 * 
+	 * @param email adres e-mail rodzica
+	 * @param name imie rodzica
+	 * @param password haslo rodzica
+	 * @return id nowego rodzica
+	 */
+	public int addParent(String email, String name, String password);
+	/**
+	 * Usuwa rodzica z bazy danych.
+	 * 
+	 * @param idParent indywidaulny numer rodzica
+	 * @return prawda - jeśli operacja się udała, fałsz - jeśli zakończono niepowodzeniem
+	 */
+	public boolean removeParent(int idParent);
+	//###
+	
+	//### CHILDREN LIST ###
 	/**
 	 * Pobiera listę dzieci przypisanych do konkretnego rodzica.
 	 * 
 	 * @param idParent indywidaulny numer rodzica
 	 * @return tablica indywidualnych numerów dzieci
 	 */
-	public int[] getChildsList(int idParent);
+	public List<Integer> getChildsList(int idParent);
 	
 	/**
 	 * PROTOTYP - NIE WIADOMO CZY BEDZIE DZIAŁAŁ
@@ -25,12 +47,26 @@ public interface ParentDAO {
 	
 	//### CHILD ###
 	/**
-	 * Przypisuje nowe dziecko do konkretnego rodzica i zwraca jego numer z bazy danych.
+	 * Przypisuje ISTNIEJĄCE dziecko do konkretnego rodzica.
 	 * 
 	 * @param idParent indywidaulny numer rodzica
+	 * @return prawda - jeśli operacja się udała, fałsz - jeśli zakończono niepowodzeniem
+	 */
+	public boolean addChild(int idParent, int idChild);
+	
+	/**
+	 * Tworzy nowe dziecko i przypisuje do konkretnego rodzica i zwraca jego numer z bazy danych.
+	 * 
+	 * @param idParent indywidaulny numer rodzica
+	 * @param idArea id zagrozonej strefy dla dziecka
+	 * @param imei IMEI komorki dziecka
+	 * @param name imię dziecka
+	 * @param dateOfBirth data urodzenia dziecka
+	 * @param key indywiadualny klucz dziecka, potrzebny przy rejestracji
 	 * @return indywidualny numer dziecka
 	 */
-	public int addChild(int idParent);
+	int addChild(int idParent, int idArea, String imei, String name,
+			Date dateOfBirth, String key);
 	
 	/**
 	 * Usuwa powiązanie dziecka z rodzicem.
@@ -98,4 +134,6 @@ public interface ParentDAO {
 	 */
 	public boolean setPassword(int idParent, String password);
 	//###
+	
+
 }
