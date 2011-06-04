@@ -271,7 +271,7 @@ public class JDBCChildDAO implements ChildDAO {
 		String tableName = "CHILDREN";
 		String columnName = "DATEOFBIRTH";
 		String condition = "IDCHILD = '" + idChild + "'";
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd");
 		String value = "'" + sdf.format(date) + "'";
 		boolean success = false;
 
@@ -298,8 +298,7 @@ public class JDBCChildDAO implements ChildDAO {
 		Date dob = null;
 		DateFormat df;
 
-		ResultSet rs = DatabaseUtils.queryCommand(tableName, columnName,
-				condition);
+		ResultSet rs = DatabaseUtils.queryCommand(tableName, columnName, condition);
 
 		if (rs.equals(null)) {
 			return null;
@@ -310,8 +309,7 @@ public class JDBCChildDAO implements ChildDAO {
 				dateOfBirth = rs.getString("DATEOFBIRTH");
 			}
 		} catch (SQLException ex) {
-			System.err
-					.println("Problem, while getting DATEOFBIRTH from database.");
+			System.err.println("Problem, while getting DATEOFBIRTH from database.");
 		}
 
 		df = new SimpleDateFormat("dd-mm-yyyy");
