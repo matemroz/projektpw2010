@@ -48,6 +48,8 @@ public class JDBCParentDAO implements ParentDAO{
 			pstmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} catch (Exception e){
+			e.printStackTrace();
 		}
 		return idParent;
 	}
@@ -301,6 +303,7 @@ public class JDBCParentDAO implements ParentDAO{
 		} catch (SQLException ex) {
 			System.err
 					.println("Problem, while getting NAME from database.");
+			ex.printStackTrace();
 		}
 		return name;
 	}
