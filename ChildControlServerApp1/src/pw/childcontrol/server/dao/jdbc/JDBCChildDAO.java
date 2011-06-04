@@ -315,6 +315,7 @@ public class JDBCChildDAO implements ChildDAO {
 		df = new SimpleDateFormat("dd-mm-yyyy");
 		try {
 			dob = (Date) df.parse(dateOfBirth);
+			System.out.println(dob.toString());
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -407,7 +408,7 @@ public class JDBCChildDAO implements ChildDAO {
 	 *            indiwydualny numer dziecka
 	 * @param historyLimit
 	 *            limit ilości zwracanych punktów
-	 * @return lista punktów geograficznych w któych przebywało dziecko
+	 * @return lista punktów geograficznych w któych przebywało dziecko lub null jeśli brak
 	 */
 	@Override
 	public List<AreaPoint> getLocationHistory(int idChild, int historyLimit) {
@@ -418,7 +419,7 @@ public class JDBCChildDAO implements ChildDAO {
 		ResultSet rs = DatabaseUtils.queryCommand(tableName, columnNames,
 				condition);		
 		
-		if (rs.equals(null)) {
+		if (rs == null) {
 			return null;
 		}
 
@@ -476,6 +477,21 @@ public class JDBCChildDAO implements ChildDAO {
 		}
 
 		return areaPoints;
+	}
+	
+	public static void main(String[] args){
+		Date dob = null;
+		DateFormat df;
+		String dateOfBirth = "01-01-2000";
+
+
+		df = new SimpleDateFormat("dd-mm-yyyy");
+		try {
+			dob = (Date) df.parse(dateOfBirth);
+			System.out.println(dob.toString());
+		} catch(ParseException e){
+			e.toString();
+		}
 	}
 
 }

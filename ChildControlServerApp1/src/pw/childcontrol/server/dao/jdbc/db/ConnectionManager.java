@@ -4,9 +4,11 @@
 */
 package pw.childcontrol.server.dao.jdbc.db;
 
+import java.io.PrintWriter;
 import java.sql.*;
 
 import oracle.jdbc.pool.OracleDataSource;
+import pw.childcontrol.server.dao.jdbc.JDBCParentDAO;
 
 public class ConnectionManager {
 
@@ -47,9 +49,27 @@ public class ConnectionManager {
 	 * Method responsible for closing connection from database.
 	 * @return 
 	 * @throws SQLException  If an sql exception occured.
-	 */
+	 */	
 	public static void disconnectFromDatabase() throws SQLException{
 		cm.conn.close();
 	}
 	
+	public static void main(String[] argv){
+		try {
+			ConnectionManager.getDatabaseConnection();
+			JDBCParentDAO parent = new JDBCParentDAO();
+			int idParent = 1;
+			//idParent = parent.addParent("test@gmail.com", "Jan Nowak", "h@slo");
+			
+			
+			//JDBCAreaManagerDAO area = new JDBCAreaManagerDAO();
+			
+			System.out.println("Hello World! id " + idParent);// + String.valueOf(imei.length()));
+			System.out.println("Rodzic: " + parent.getEmail(idParent) + " " + parent.getName(idParent) + " " + parent.getPassword(idParent));
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
