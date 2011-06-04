@@ -76,6 +76,14 @@ public interface ParentDAO {
 	 * @return prawda - jeśli operacja się udała, fałsz - jeśli zakończono niepowodzeniem
 	 */
 	public boolean removeChild(int idParent, int idChild);
+	
+	/**
+	 * Usuwa dziecko razem z powiazaniami.
+	 * 
+	 * @param idChild indywidualny numer dziecka
+	 * @return prawda - jeśli operacja się udała, fałsz - jeśli zakończono niepowodzeniem
+	 */
+	public boolean removeChild(int idChild);
 	//###
 	
 	//### EMAIL ###
