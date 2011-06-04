@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -25,22 +26,11 @@ public class JDBCParentDAO implements ParentDAO{
 	 */
 	@Override
 	public int addParent(String email, String name, String password){
-		/*String tableName = "PARENT";
-		List<String> columnList = new LinkedList<String>();
-		List<String> valueList = new LinkedList<String>();
-		columnList.add("EMAIL");
-		columnList.add("NAME");
-		columnList.add("SHORTEDPASSWORD");
-		valueList.add(String.valueOf(email));
-		valueList.add(String.valueOf(name));
-		valueList.add(String.valueOf(password));
-		return DatabaseUtils.insertCommand(tableName, columnList, valueList);*/
 		int idParent = 0;
 		String tableName = "PARENT";
 		String columnNames = "EMAIL,PARENTNAME,SHORTEDPASSWORD";
 		String values = "'" + email + "','" + name + "','" + password + "'";
 		String insertQuery = "INSERT INTO " + tableName + " (" + columnNames + ") VALUES (" + values + ")";
-		System.out.println(insertQuery);
 		
 		try {
 			/* przygotowanie zapytania zwracającego id dodanego wiersza */
@@ -69,7 +59,19 @@ public class JDBCParentDAO implements ParentDAO{
 	 */
 	@Override
 	public boolean removeParent(int idParent){
-		return false;
+		boolean result = false;
+		String condition = "IDPARENT = " + idParent;
+		
+		String tableName = "PARENTSETTINGS";
+		DatabaseUtils.deleteCommand(tableName, condition);
+		
+		tableName = "FAMILY";
+		DatabaseUtils.deleteCommand(tableName, condition);
+		
+		tableName = "PARENT";
+		result =  DatabaseUtils.deleteCommand(tableName, condition);
+		
+		return result;
 	}
 
 	//### CHILDREN LIST###
@@ -129,8 +131,15 @@ public class JDBCParentDAO implements ParentDAO{
 	 */
 	@Override
 	public boolean addChild(int idParent, int idChild) {
-		// TODO Auto-generated method stub
-		return false;
+		String tableName = "FAMILY";
+		List<String> columns  = new LinkedList<String>();
+		columns.add("IDPARENT");
+		columns.add("IDCHILD");
+		List<String> values  = new LinkedList<String>();
+		values.add(String.valueOf(idParent));
+		values.add(String.valueOf(idChild));
+			
+		return DatabaseUtils.insertCommand(tableName, columns, values);
 	}
 	
 	/**
@@ -149,8 +158,11 @@ public class JDBCParentDAO implements ParentDAO{
 		/*FAZA 1: Dodawnie dziecka do bazy danych*/
 		int idChild = 0;
 		String tableName = "CHILDREN";
-		String columnNames = "IDAREA, IMEI, CHILDNAME, KEY";
-		String values = idArea + ",'" + imei + "','" + name + "','" + key + "'";
+		String columnNames = "IDAREA, IMEI, CHILDNAME, KEY,DATEOFBIRTH";
+		String dateFormat = "dd-MM-yyyy";
+		SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+		String date = "" + sdf.format(dateOfBirth);
+		String values = idArea + ",'" + imei + "','" + name + "','" + key + "',TO_DATE('" + date + "','" + dateFormat + "')";
 		String insertQuery = "INSERT INTO " + tableName + " (" + columnNames + ") VALUES (" + values + ")";
 		System.out.println(insertQuery);
 		
@@ -179,7 +191,7 @@ public class JDBCParentDAO implements ParentDAO{
 		valueList.add(String.valueOf(idChild));
 		
 		
-		boolean result = DatabaseUtils.insertCommand(tableName, columnList, valueList);
+		DatabaseUtils.insertCommand(tableName, columnList, valueList);
 		return idChild;
 	}
 
@@ -195,6 +207,22 @@ public class JDBCParentDAO implements ParentDAO{
 		String tableName = "FAMILY";
 		String condition = "IDPARENT = '" + idParent + "' AND IDCHILD = '" + idChild + "'";
 		
+		return DatabaseUtils.deleteCommand(tableName, condition);
+	}
+	
+	/**
+	 * Usuwa dziecko razem z powiazaniami.
+	 * 
+	 * @param idChild indywidualny numer dziecka
+	 * @return prawda - jeśli operacja się udała, fałsz - jeśli zakończono niepowodzeniem
+	 */
+	public boolean removeChild(int idChild) {
+		String condition = "IDCHILD = '" + idChild + "'";
+		
+		String tableName = "FAMILY";
+		DatabaseUtils.deleteCommand(tableName, condition);
+		
+		tableName = "CHILDREN";
 		return DatabaseUtils.deleteCommand(tableName, condition);
 	}
 
@@ -257,7 +285,7 @@ public class JDBCParentDAO implements ParentDAO{
 	public String getName(int idParent) {
 		String name = "";
 		String tableName = "PARENT";
-		String columnName = "NAME";
+		String columnName = "PARENTNAME";
 		String condition = "IDPARENT = '" + idParent + "'";
 		
 		ResultSet rs = DatabaseUtils.queryCommand(tableName, columnName, condition);
@@ -268,7 +296,7 @@ public class JDBCParentDAO implements ParentDAO{
 		
 		try {
 			while (rs.next()) {
-				name = rs.getString("NAME");
+				name = rs.getString("PARENTNAME");
 			}
 		} catch (SQLException ex) {
 			System.err
@@ -342,7 +370,7 @@ public class JDBCParentDAO implements ParentDAO{
 		return DatabaseUtils.updateCommand(tableName, columnName, value, condition);
 	}
 
-	
+	/*
 	public static void main(String [ ] args){
 		JDBCParentDAO instance = new JDBCParentDAO();
 		int idParent = 1;
@@ -350,23 +378,38 @@ public class JDBCParentDAO implements ParentDAO{
 		String email = "2testowy@test.pl";
 		String name = "Zulugula";
 		String password = "haslo";
-		//instance.getChildsList(idParent);
-		instance.addParent(email,name,password);
-		//instance.addChild(idParent,1,"imei","Robert",new Date(2011,04,07),"kluczyk");
-		//System.out.println(instance.getEmail(idParent));
-		//System.out.println(instance.getName(idParent));
-		//System.out.println(instance.getPassword(idParent));
-		//instance.removeChild(idParent, idChild);
-		//instance.setEmail(idParent, email);
-		//instance.setName(idParent, name);
-		//instance.setPassword(idParent, password);
-	}
-	
-	
+		int idArea = 1;
+		String imei = "imei";
+		Date dateOfBirth = new Date();
+		String key = "klucz";
+		
+		System.out.println("addParent :" + instance.addParent(email,name,password));
+		
+		System.out.println("removeParent " + instance.removeParent(idParent));
 
+		List<Integer> list = instance.getChildsList(idParent);
+		System.out.println(list.toString());
+		
+		System.out.println("addChild1 :" + instance.addChild(idParent, idChild));
+		
+		System.out.println("addChild2 :" + instance.addChild(idParent, idArea, imei, name, dateOfBirth, key));
+		
+		System.out.println("removeChild1 :" + instance.removeChild(idParent, idChild));
+		
+		System.out.println("removeChild2 :" + instance.removeChild(idChild));
+		
+		System.out.println("setEmail :" + instance.setEmail(idParent, email));
+		
+		System.out.println("getEmail :" + instance.getEmail(idParent));
+		
+		System.out.println("getName :" + instance.getName(idParent));
+		
+		System.out.println("setName :" + instance.setName(idParent, name));
+		
+		System.out.println("getPassword :" + instance.getPassword(idParent));
+		
+		System.out.println("setPassword :" + instance.setPassword(idParent, password));
+	}
+	*/
 	
-	/* TODO:
-	 * removeParent
-	 * addChild: jaki format dla Daty? ciezko znalesc prawidlowy format do inserta, jak bedzie wiadomo jaki format to dodac date do zapytania
-	 */
 }
