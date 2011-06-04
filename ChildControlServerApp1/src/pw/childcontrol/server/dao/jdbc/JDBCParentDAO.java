@@ -37,7 +37,7 @@ public class JDBCParentDAO implements ParentDAO{
 		return DatabaseUtils.insertCommand(tableName, columnList, valueList);*/
 		int idParent = 0;
 		String tableName = "PARENT";
-		String columnNames = "EMAIL,NAME,SHORTEDPASSWORD";
+		String columnNames = "EMAIL,PARENTNAME,SHORTEDPASSWORD";
 		String values = "'" + email + "','" + name + "','" + password + "'";
 		String insertQuery = "INSERT INTO " + tableName + " (" + columnNames + ") VALUES (" + values + ")";
 		System.out.println(insertQuery);
@@ -45,6 +45,8 @@ public class JDBCParentDAO implements ParentDAO{
 		try {
 			/* przygotowanie zapytania zwracającego id dodanego wiersza */
 			String generatedId[] = {"IDPARENT"};
+			
+			System.out.println(insertQuery);
 			PreparedStatement pstmt = ConnectionManager.getDatabaseConnection().prepareStatement(insertQuery, generatedId);
 			
 			pstmt.execute();
@@ -147,7 +149,7 @@ public class JDBCParentDAO implements ParentDAO{
 		/*FAZA 1: Dodawnie dziecka do bazy danych*/
 		int idChild = 0;
 		String tableName = "CHILDREN";
-		String columnNames = "IDAREA, IMEI, NAME, KEY";
+		String columnNames = "IDAREA, IMEI, CHILDNAME, KEY";
 		String values = idArea + ",'" + imei + "','" + name + "','" + key + "'";
 		String insertQuery = "INSERT INTO " + tableName + " (" + columnNames + ") VALUES (" + values + ")";
 		System.out.println(insertQuery);
@@ -285,7 +287,7 @@ public class JDBCParentDAO implements ParentDAO{
 	@Override
 	public boolean setName(int idParent, String name) {
 		String tableName = "PARENT";
-		String columnName = "NAME";
+		String columnName = "PARENTNAME";
 		String value = "'" + name + "'";
 		String condition = "IDPARENT = '" + idParent + "'";
 		
