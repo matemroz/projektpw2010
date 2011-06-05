@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="app_name">ChildControl</string>
+    <string name="textView_Main_Text"></string>
+    <string name="button_Main">Pobierz</string>
+</resources>
