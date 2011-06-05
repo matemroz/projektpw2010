@@ -33,9 +33,8 @@ public class JDBCParentDAO implements ParentDAO{
 		String insertQuery = "INSERT INTO " + tableName + " (" + columnNames + ") VALUES (" + values + ")";
 		
 		try {
-			/* przygotowanie zapytania zwracającego id dodanego wiersza */
-			String generatedId[] = {"IDPARENT"};
-			
+			/* wykonanie zapytania zwracającego id dodanego wiersza */
+			String generatedId[] = {"IDPARENT"};	
 			System.out.println(insertQuery);
 			PreparedStatement pstmt = ConnectionManager.getDatabaseConnection().prepareStatement(insertQuery, generatedId);
 			
@@ -169,7 +168,7 @@ public class JDBCParentDAO implements ParentDAO{
 		System.out.println(insertQuery);
 		
 		try {
-			/* przygotowanie zapytania zwracającego id dodanego wiersza */
+			/* wykonanie zapytania zwracającego id dodanego wiersza */
 			String generatedId[] = {"IDCHILD"};
 			PreparedStatement pstmt = ConnectionManager.getDatabaseConnection().prepareStatement(insertQuery, generatedId);
 			
