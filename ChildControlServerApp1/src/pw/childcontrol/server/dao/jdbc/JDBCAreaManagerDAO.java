@@ -14,7 +14,14 @@ import pw.childcontrol.server.dao.jdbc.db.ConnectionManager;
 import pw.childcontrol.utils.db.DatabaseUtils;
 
 public class JDBCAreaManagerDAO implements AreaManagerDAO{
-
+	
+	//### AREA ###
+	/**
+	 * Pobiera listę niebezpiecznych miejsc zdefiniowanych dla konkretnego dziecka.
+	 * 
+	 * @param idChild indywidualny numer dziecka
+	 * @return lista niebezpiecznych miejsc
+	 */
 	@Override
 	public List<Area> getDangerousAreas(int idChild) {
 		List<Area> areaList = new LinkedList<Area>();
@@ -62,6 +69,13 @@ public class JDBCAreaManagerDAO implements AreaManagerDAO{
 		return areaList;
 	}
 
+	/**
+	 * Dodaje niebezpieczne miejsca dla konkretnego dziecka.
+	 * 
+	 * @param idChild indywidualny numer dziecka
+	 * @param area niebezpieczne miejsce
+	 * @return id dodanego obszaru, 0 - jesli wystapil blad
+	 */
 	@Override
 	public int addDangerousArea(int idChild, Area area) {
 		int idArea = 0;
@@ -111,6 +125,13 @@ public class JDBCAreaManagerDAO implements AreaManagerDAO{
 		return idArea;
 	}
 
+	/**
+	 * Usuwa niebezpieczne miejsce zdefiniowane dla konkretnego dziecka.
+	 * 
+	 * @param idChild indywidualny numer dziecka
+	 * @param area niebezpieczne miejsce
+	 * @return prawda - jeśli operacja się udała, fałsz - jeśli nie udało się usunąć
+	 */
 	@Override
 	public boolean removeDangerousArea(int idChild, Area area) {
 		int idArea = 0;
@@ -164,6 +185,15 @@ public class JDBCAreaManagerDAO implements AreaManagerDAO{
 		return result;
 	}
 
+	//### AREA POINT ###
+	/**
+	 * Sprawdza czy punkt geograficzny należy do obszaru zdefiniowanego jako niebezpieczny
+	 * dla konkretnego dziecka.
+	 * 
+	 * @param idChild indywidualny numer dziecka
+	 * @param point punkt geograficzny
+	 * @return prawda - jeśli punkt jest niebezpieczny, fałsz - jesli punkt jest bezpieczny
+	 */
 	@Override
 	public boolean idDangerousArea(int idChild, AreaPoint point) {
 		boolean result = false;

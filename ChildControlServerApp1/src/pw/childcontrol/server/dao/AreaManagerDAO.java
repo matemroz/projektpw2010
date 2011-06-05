@@ -23,7 +23,7 @@ public interface AreaManagerDAO {
 	 * 
 	 * @param idChild indywidualny numer dziecka
 	 * @param area niebezpieczne miejsce
-	 * @return prawda - jeśli ope racja się udała, fałsz - jeśli zakończono niepowodzeniem
+	 * @return id dodanego obszaru, 0 - jesli wystapil blad
 	 */
 	public int addDangerousArea(int idChild, Area area);
 	
@@ -32,7 +32,7 @@ public interface AreaManagerDAO {
 	 * 
 	 * @param idChild indywidualny numer dziecka
 	 * @param area niebezpieczne miejsce
-	 * @return id utworzonego obszaru, jesli 0 - wystapil blad
+	 * @return prawda - jeśli operacja się udała, fałsz - jeśli nie udało się usunąć
 	 */
 	public boolean removeDangerousArea(int idChild, Area area);
 	//###
